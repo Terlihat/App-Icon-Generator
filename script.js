@@ -17,8 +17,7 @@ window.onload = () => {
     }
 }
 
-// === DATA UKURAN IKON & PENAMAAN FILE CUSTOM ===
-// Penamaan icon 192 dan 512 disesuaikan langsung dengan permintaan Anda.
+// === DATA UKURAN IKON & PENAMAAN FILE CUSTOM PWA ===
 const baseIconSizes = [
     { size: 16, name: "Favicon", rel: "icon", type: "square", filename: "icon-16x16.png" },
     { size: 32, name: "Favicon", rel: "icon", type: "square", filename: "icon-32x32.png" },
@@ -27,7 +26,7 @@ const baseIconSizes = [
     { size: 512, name: "Android PWA", rel: "icon", type: "square", filename: "icon-512.png" }
 ];
 
-// === LOGIKA BARU PWA INPUT ELEMENT TOGGLE ===
+// === TOGGLE INPUT PWA ===
 function togglePwaInput() {
     const usePwa = document.getElementById('pro-pwa').checked;
     const inputContainer = document.getElementById('pwa-input-container');
@@ -142,8 +141,6 @@ function generateIcons() {
         const isBanner = item.type === "banner";
         const w = isBanner ? item.width : item.size;
         const h = isBanner ? item.height : item.size;
-        
-        // Memastikan penamaan sesuai target lokal
         const filename = item.filename;
         
         const card = document.createElement('div');
@@ -222,7 +219,6 @@ function generateIcons() {
         iconGrid.appendChild(card);
     });
 
-    // PWA JSON Target file lokal yang diinginkan user
     if (usePwa) {
         htmlSnippet += `<link rel="manifest" href="/manifest.json">\n`;
         
@@ -281,4 +277,17 @@ function copyCode(targetId, btnSelector) {
     const originalText = btn.innerText;
     btn.innerText = "✅ Tersalin!";
     setTimeout(() => { btn.innerText = originalText; }, 2000);
+}
+
+// === REGISTRASI SERVICE WORKER UNTUK PWA ===
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then((registration) => {
+                console.log('Service Worker sukses terdaftar:', registration.scope);
+            })
+            .catch((error) => {
+                console.error('Service Worker gagal terdaftar:', error);
+            });
+    });
 }
