@@ -6,8 +6,9 @@
     <title>Favicon & App Icon Generator</title>
     
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
 
@@ -34,15 +35,57 @@
             <img id="preview-img" alt="Preview Gambar">
         </div>
 
+        <div class="settings-section" id="settings-section">
+            <h3>⚙️ Pengaturan Ikon</h3>
+            <div class="settings-grid">
+                <div class="setting-group">
+                    <label for="bg-color">Warna Latar:</label>
+                    <div class="color-controls">
+                        <input type="color" id="bg-color" value="#ffffff" oninput="updateSettings()">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="bg-transparent" onchange="updateSettings()" checked> Transparan
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label for="icon-padding">Jarak Tepi / Padding (<span id="padding-val">0</span>%):</label>
+                    <input type="range" id="icon-padding" min="0" max="50" value="0" oninput="updateSettings()">
+                </div>
+                <div class="setting-group">
+                    <label for="icon-radius">Sudut Membulat / Radius (<span id="radius-val">0</span>%):</label>
+                    <input type="range" id="icon-radius" min="0" max="50" value="0" oninput="updateSettings()">
+                </div>
+                <div class="setting-group pro-features">
+                    <label>✨ Fitur Premium:</label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="pro-shadow" onchange="updateSettings()"> Aktifkan Efek Drop Shadow
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="pro-banner" onchange="updateSettings()"> Generate Banner Sosmed (1200x630)
+                    </label>
+                </div>
+            </div>
+        </div>
+
         <div class="results-section" id="results-section">
-            <h2>Download Icons</h2>
+            <div class="results-header">
+                <h2>Hasil Icons</h2>
+                <button id="btn-zip" class="btn-zip" onclick="downloadZip()">📦 Download Semua (ZIP)</button>
+            </div>
+            
             <div class="icon-grid" id="icon-grid">
                 </div>
+
+            <div class="code-section">
+                <h2>📋 Kode HTML (Copy ke &lt;head&gt;)</h2>
+                <textarea id="html-code" readonly rows="6"></textarea>
+                <button onclick="copyCode()" class="btn-copy">Copy Kode</button>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>Favicon & App Icon Generator | <strong>Versi Kode: v1.0.1</strong> | Created by Gemini</p>
+        <p>Favicon & App Icon Generator | <strong>Versi Kode: v1.0.5</strong> | Created by Gemini</p>
     </footer>
 
     <script src="script.js"></script>
