@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon & App Icon Generator</title>
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="title-container">
+            <h1>Iconify Web</h1>
+        </div>
+        <div class="theme-selector">
+            <label for="theme">Tema:</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="dark">Dark (Default)</option>
+                <option value="light">Light</option>
+                <option value="blue-dark">Blue Dark</option>
+                <option value="green-light">Green Light</option>
+                <option value="orange-pink-light">Orange-Pink Light</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-section" onclick="document.getElementById('image-upload').click()">
+            <span class="upload-label">Klik untuk Upload Gambar (PNG/JPG/SVG)</span>
+            <input type="file" id="image-upload" accept="image/*" onchange="handleImageUpload(event)">
+            <img id="preview-img" alt="Preview Gambar">
+        </div>
+
+        <div class="results-section" id="results-section">
+            <h2>Download Icons</h2>
+            <div class="icon-grid" id="icon-grid">
+                </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Favicon & App Icon Generator | <strong>Versi Kode: v1.0.1</strong> | Created by Gemini</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
