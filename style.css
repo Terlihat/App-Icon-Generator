@@ -111,12 +111,12 @@ main {
     border-radius: 12px;
     cursor: pointer;
     margin-bottom: 2rem;
-    transition: all 0.3s ease; /* Transisi untuk drag & drop */
+    transition: all 0.3s ease;
 }
 
 .upload-section:hover { background-color: rgba(0,0,0,0.02); opacity: 0.8; }
 
-/* Tambahan Efek Visual Drag & Drop */
+/* Efek Visual Drag & Drop */
 .upload-section.dragover {
     background-color: rgba(187, 134, 252, 0.1);
     border-color: var(--primary-hover);
@@ -192,28 +192,15 @@ input[type="range"] {
     align-items: center;
     gap: 0.4rem;
     cursor: pointer;
+    margin-bottom: 0.2rem;
 }
 
-/* Fitur Premium & PWA Input Container */
-.pro-features {
-    background-color: rgba(255, 215, 0, 0.05);
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    padding: 0.8rem;
-    border-radius: 8px;
-    margin-top: 0.5rem;
-}
-
-.pro-features label:first-child {
-    color: #d4af37;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
+/* PWA Input Container Minimalis */
 .pwa-input-container {
     display: none;
-    margin-top: 0.8rem;
+    margin-top: 0.5rem;
     padding-top: 0.8rem;
-    border-top: 1px dashed rgba(255, 215, 0, 0.3);
+    border-top: 1px dashed var(--border);
 }
 
 .pwa-input-container input[type="text"] {
@@ -264,8 +251,8 @@ input[type="range"] {
 
 .icon-card.banner-card {
     grid-column: 1 / -1;
-    background-color: rgba(255, 215, 0, 0.05);
-    border-color: rgba(255, 215, 0, 0.3);
+    background-color: rgba(187, 134, 252, 0.03);
+    border-color: var(--primary);
 }
 
 .icon-card canvas {
@@ -327,11 +314,50 @@ textarea {
 
 .btn-copy { align-self: flex-start; }
 
+/* === FOOTER UPDATED BY SULFIKAR === */
 footer {
     margin-top: auto;
-    padding-top: 2rem;
+    padding: 2rem 1rem 1rem 1rem;
     text-align: center;
     font-size: 0.9rem;
     color: var(--text-color);
-    opacity: 0.7;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
 }
+
+.author-text {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.author-text strong {
+    color: var(--primary);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.social-icon {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+}
+
+/* Efek Hover Khas Masing-Masing Sosmed */
+.social-icon:hover {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+.social-icon.github:hover { color: #6e5494; }
+.social-icon.discord:hover { color: #5865F2; }
+.social-icon.telegram:hover { color: #0088cc; }
+.social-icon.threads:hover { color: var(--primary); }
