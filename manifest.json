@@ -1,6 +1,6 @@
 {
-    "name": "Iconify IconGenerator",
-    "short_name": "Iconify",
+    "name": "Iconify Web - Icon Generator",
+    "short_name": "IconifyWeb",
     "description": "Favicon, App Icon, and Social Media Banner Generator",
     "start_url": "./index.html",
     "display": "standalone",
