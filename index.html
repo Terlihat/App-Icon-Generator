@@ -8,6 +8,8 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
@@ -56,8 +58,7 @@
                     <input type="range" id="icon-radius" min="0" max="50" value="0" oninput="updateSettings()">
                 </div>
                 
-                <div class="setting-group pro-features">
-                    <label>✨ Fitur Premium:</label>
+                <div class="setting-group">
                     <label class="checkbox-label">
                         <input type="checkbox" id="pro-shadow" onchange="updateSettings()"> Aktifkan Efek Drop Shadow
                     </label>
@@ -99,7 +100,15 @@
     </main>
 
     <footer>
-        <p>Favicon & App Icon Generator | <strong>Versi Final: v1.1.0</strong> | Created by Gemini</p>
+        <p>Favicon & App Icon Generator | Versi Clean: v1.1.2</p>
+        <p class="author-text">Dibuat oleh <strong>Sulfikar</strong></p>
+        
+        <div class="social-links">
+            <a href="#" target="_blank" title="GitHub" class="social-icon github"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" title="Discord" class="social-icon discord"><i class="fab fa-discord"></i></a>
+            <a href="#" target="_blank" title="Telegram" class="social-icon telegram"><i class="fab fa-telegram"></i></a>
+            <a href="#" target="_blank" title="Threads" class="social-icon threads"><i class="fab fa-threads"></i></a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
