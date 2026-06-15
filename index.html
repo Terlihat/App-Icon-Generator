@@ -29,8 +29,8 @@
     </header>
 
     <main>
-        <div class="upload-section" onclick="document.getElementById('image-upload').click()">
-            <span class="upload-label">Klik untuk Upload Gambar (PNG/JPG/SVG)</span>
+        <div class="upload-section" id="drop-zone" onclick="document.getElementById('image-upload').click()">
+            <span class="upload-label">Klik atau Tarik & Lepas (Drag & Drop) Gambar di Sini</span>
             <input type="file" id="image-upload" accept="image/*" onchange="handleImageUpload(event)">
             <img id="preview-img" alt="Preview Gambar">
         </div>
@@ -62,8 +62,15 @@
                         <input type="checkbox" id="pro-shadow" onchange="updateSettings()"> Aktifkan Efek Drop Shadow
                     </label>
                     <label class="checkbox-label">
-                        <input type="checkbox" id="pro-banner" onchange="updateSettings()"> Generate Banner Sosmed (1200x630)
+                        <input type="checkbox" id="pro-banner" onchange="updateSettings()"> Generate Banner Sosmed
                     </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="pro-pwa" onchange="togglePwaInput()"> Generate PWA Manifest
+                    </label>
+                    <div id="pwa-input-container" class="pwa-input-container">
+                        <label for="pwa-name">Nama Aplikasi Anda:</label>
+                        <input type="text" id="pwa-name" value="My Progressive App" oninput="updateSettings()">
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,13 +87,19 @@
             <div class="code-section">
                 <h2>📋 Kode HTML (Copy ke &lt;head&gt;)</h2>
                 <textarea id="html-code" readonly rows="6"></textarea>
-                <button onclick="copyCode()" class="btn-copy">Copy Kode</button>
+                <button onclick="copyCode('html-code', '.btn-copy-html')" class="btn-copy btn-copy-html">Copy Kode HTML</button>
+            </div>
+
+            <div class="code-section" id="manifest-section" style="display: none;">
+                <h2>⚙️ PWA Web Manifest (Simpan sebagai `manifest.json`)</h2>
+                <textarea id="manifest-code" readonly rows="6"></textarea>
+                <button onclick="copyCode('manifest-code', '.btn-copy-manifest')" class="btn-copy btn-copy-manifest">Copy JSON Manifest</button>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>Favicon & App Icon Generator | <strong>Versi Kode: v1.0.5</strong> | Created by Gemini</p>
+        <p>Favicon & App Icon Generator | <strong>Versi Final: v1.1.0</strong> | Created by Gemini</p>
     </footer>
 
     <script src="script.js"></script>
